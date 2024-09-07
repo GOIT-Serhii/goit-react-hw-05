@@ -1,0 +1,59 @@
+.header {
+  background-color: rgb(100, 100, 232);
+  padding: 8px;
+}
+
+.formik {
+  margin-left: auto;
+}
+
+.form {
+  width: 300px;
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  background-color: white;
+  border-radius: 4px;
+  height: 40px;
+  min-width: 300px;
+  padding-left: 38px;
+  font-size: 20px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(26, 27, 33, 0.4);
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input::placeholder {
+  font-size: 18px;
+  line-height: 1.17;
+  letter-spacing: normal;
+}
+
+.sbtBtn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background-color: #4d5ae5;
+  cursor: pointer;
+  width: 80px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sbtBtn:hover,
+.sbtBtn:focus {
+  background-color: #404bbf;
+}

@@ -1,0 +1,29 @@
+.buttonBack {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: #fff;
+  border-radius: 4px;
+
+  background-color: rgb(245, 236, 236);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  gap: 8px;
+  cursor: pointer;
+}
+.linkBack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  fill: black;
+  width: 24px;
+  height: 24px;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
+import { ColorRing } from "react-loader-spinner";
 
 import { fetchTopMovies } from "../../api";
 import css from "./HomePage.module.css";
@@ -27,10 +28,21 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className={css.container}>
+      <h2 className={css.trendTitile}>Trending today</h2>
       {topMovies.length > 0 && <MovieList movie={topMovies} />}
       {error && <b>ERROR!!!</b>}
-      {loading && <b>LOADING</b>}
+      {loading && (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="color-ring-loading"
+          wrapperStyle={{}}
+          wrapperClass="color-ring-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      )}
     </div>
   );
 }

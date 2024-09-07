@@ -1,0 +1,13 @@
+.container {
+  padding: 8px;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reviewListItem {
+  padding: 8px;
+}

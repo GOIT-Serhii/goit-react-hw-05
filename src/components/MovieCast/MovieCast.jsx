@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ColorRing } from "react-loader-spinner";
 
 import { getMovieCastById } from "../../api";
 import css from "./MovieCast.module.css";
@@ -21,7 +22,7 @@ export default function MovieCast() {
         setLoading(true);
         setError(false);
         const res = await getMovieCastById(movieId);
-        setMovieCast(res);
+        setMovieCast(res.cast);
       } catch (error) {
         console.log(error);
         setError(true);
@@ -33,12 +34,13 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <div>
-      {movieCast.cast?.length > 0 && (
-        <ul>
-          {movieCast.cast.map((item) => (
-            <li key={item.id}>
+    <div className={css.container}>
+      {movieCast.length > 0 && (
+        <ul className={css.castList}>
+          {movieCast.map((item) => (
+            <li className={css.castListItem} key={item.id}>
               <img
+                className={css.castImg}
                 src={
                   item.profile_path
                     ? `https://image.tmdb.org/t/p/w500/${item.profile_path}`
@@ -46,14 +48,26 @@ export default function MovieCast() {
                 }
                 alt="photo"
               />
-              <p>{item.name}</p>
-              <p>Character: {item.character}</p>
+              <h2 className={css.castName}>{item.name}</h2>
+              <p className={css.castCharacter}>
+                Character: <span>{item.character}</span>
+              </p>
             </li>
           ))}
         </ul>
       )}
       {error && <b>ERROR!!!</b>}
-      {loading && <b>LOADING</b>}
+      {loading && (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="color-ring-loading"
+          wrapperStyle={{}}
+          wrapperClass="color-ring-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      )}
     </div>
   );
 }

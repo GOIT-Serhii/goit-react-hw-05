@@ -1,0 +1,27 @@
+.container {
+}
+
+.castList {
+}
+
+.castListItem {
+}
+
+.castImg {
+  width: 200px;
+  height: 275px;
+}
+
+.castName {
+  font-size: 18px;
+
+  color: #2e2f42;
+}
+
+.castCharacter {
+  color: #2e2f42;
+}
+
+.castCharacter span {
+  color: #a84dea;
+}

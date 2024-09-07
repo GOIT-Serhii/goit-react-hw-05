@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import MovieList from "../../components/MovieList/MovieList";
+import { ColorRing } from "react-loader-spinner";
 
 import { searchMovie } from "../../api";
 import css from "./MoviesPage.module.css";
@@ -51,20 +52,33 @@ export default function MoviesPage() {
           }
         }}
       >
-        <Form>
+        <Form className={css.form}>
           <Field
+            className={css.input}
             type="text"
             name="userInput"
-            placeholder="Search movie you like"
+            placeholder="Type movie you want to find"
           />
-          <button type="submit">Search</button>
+          <button className={css.sbtBtn} type="submit">
+            Search
+          </button>
         </Form>
       </Formik>
       <Toaster position="top-center" reverseOrder={false} />
 
       {movieSearch.length > 0 && <MovieList movie={movieSearch} />}
       {error && <b>ERROR!!!</b>}
-      {loading && <b>LOADING</b>}
+      {loading && (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="color-ring-loading"
+          wrapperStyle={{}}
+          wrapperClass="color-ring-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      )}
     </div>
   );
 }
