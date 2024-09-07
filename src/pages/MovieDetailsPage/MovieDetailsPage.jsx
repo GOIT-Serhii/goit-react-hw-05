@@ -72,7 +72,7 @@ export default function MovieDetailsPage() {
         <li className={css.movieListItem}>
           <h2 className={css.movieTitle}>{movie.original_title}</h2>
           <p className={css.movieText}>
-            User score: {movie.vote_average * 10}%
+            User score: {Math.round(movie.vote_average) * 10}%
           </p>
           <h2 className={css.movieTitle}>Overview</h2>
           <p className={css.movieText}>{movie.overview}</p>
